@@ -11,7 +11,7 @@ var openFile = function(whatFile){
 
 app.get('/', function(request, response) {
   var str = openFile('index.html');
-  var buf = new Buffer(str, encoding='utf8')
+  var buf = new Buffer(str, 'utf8')
   response.send(buf.toString('utf8'));
 });
 

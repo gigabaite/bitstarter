@@ -10,7 +10,8 @@ var openFile = function(whatFile){
 }
 
 app.get('/', function(request, response) {
-  response.send(openFile('index.html'));
+  var buf = new Buffer(openFile('index.html'));
+  response.send(buf.toString()));
 });
 
 var port = process.env.PORT || 5000;

@@ -5,13 +5,13 @@ var app = express.createServer(express.logger());
 var openFile = function(whatFile){
 /*This function save to a file(whatFile) some text(whatText)*/
 	var fsObj = require('fs');
-	return fsObj.readFileSync(whatFile);
+	return fsObj.readFileSync(whatFile,'utf8');
 	fsObj = null;
 }
 
 app.get('/', function(request, response) {
-  var buf = new Buffer(openFile('index.html'));
-  response.send(buf.toString()));
+  var buf = openFile('index.html');
+  response.send(buf);
 });
 
 var port = process.env.PORT || 5000;

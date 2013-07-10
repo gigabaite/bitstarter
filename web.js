@@ -10,8 +10,9 @@ var openFile = function(whatFile){
 }
 
 app.get('/', function(request, response) {
-  var buf = openFile('index.html');
-  response.send(buf);
+  var str = openFile('index.html');
+  var buf = new Buffer(str, encoding='utf8')
+  response.send(buf.toString('utf8'));
 });
 
 var port = process.env.PORT || 5000;

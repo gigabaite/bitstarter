@@ -3,7 +3,7 @@ var express = require('express');
 var app = express.createServer(express.logger());
 
 var openFile = function(whatFile){
-/*This function save to a file(whatFile) some text(whatText)*/
+/*This function reads a file(whatFile) and return the content*/
 	var fsObj = require('fs');
 	return fsObj.readFileSync(whatFile,'utf8');
 	fsObj = null;
